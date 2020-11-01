@@ -1,4 +1,4 @@
-angular.module('alurapic').controller('FotoController', function($scope, $http, $routeParams){
+angular.module('alurapic').controller('FotoController', function($scope, $window, $http, $routeParams){
   
   $scope.foto = {};
   $scope.mensagem = '';
@@ -21,6 +21,7 @@ angular.module('alurapic').controller('FotoController', function($scope, $http, 
         $http.put(`v1/fotos/${$scope.foto._id}`, $scope.foto)
         .success(function(){
           $scope.mensagem = `A foto ${$scope.foto.titulo} foi alterada com sucesso.`
+          $window.location.href = '/';
         })
         .error(function(erro){
           $scope.mensagem = `Não foi possivel alterar a foto ${$scope.foto.titulo}`
@@ -31,7 +32,7 @@ angular.module('alurapic').controller('FotoController', function($scope, $http, 
         $http.post('v1/fotos', $scope.foto)
         .success(function(){
           $scope.foto = {};
-          $scope.mensagem = 'Foto incluida com sucesso.';
+          $window.location.href = '/';
         })
         .error(function(erro){
           $scope.mensagem = 'Não foi possivel incluir a foto.';
