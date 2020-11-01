@@ -15,7 +15,7 @@
 git clone https://github.com/GuilhermeFujita/Alurapic_AngularJS.git
 
 # Enter the project directory
- cd Alurapic_AngularJS
+ cd Alurapic_AngularJS/alurapic/
 
  #Install dependencies
  npm install
